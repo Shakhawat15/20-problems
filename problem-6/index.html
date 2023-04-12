@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-6 | Find the longest string</title>
+    <style>
+        #title {
+            text-align: center;
+            color: darkorange;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <h2 id="title">Problem-6: Given an array of strings, Find the longest string.</h2>
+    <hr>
+    <h4>The Array of strings:</h4>
+    <p id="array"></p>
+    <h4>The longest string:</h4>
+    <p id="long"></p>
+</section>
+</body>
+
+<!-- JavaScript Code -->
+<script>
+    // This is the array of string that we use to find the longest string
+    const strings = ['hello', 'world', 'foo', 'bar']; // The array store in "strings" variable
+
+    /**
+     * Define the function to find the largest string in an array
+     * @param {Array} arr
+     * @returns {String}
+     */
+    const findLongestString = (arr) => {
+        return arr.reduce((acc, curr) => curr.length > acc.length ? curr : acc, '') // use "reduce()" method to iterate all array element and check the longest string and return it
+    };
+
+    // Invoke the function "findLongestString()" and store the result in "longestString" variable
+    const longestString = findLongestString(strings);
+
+    // Print the array in HTML tag using DOM - innerHTML
+    document.getElementById('array').innerHTML = `[ ${strings.toString()} ]`; // use toString() to convert the array as a string
+    // Print the longestString in HTML tag using DOM - innerHTML
+    document.getElementById('long').innerHTML = longestString; // use toString() to covert the array as a string
+</script>
+</html>

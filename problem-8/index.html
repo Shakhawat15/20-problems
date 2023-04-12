@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-8 | Sort the array of string in alphabetical order</title>
+    <style>
+        #title {
+            text-align: center;
+            color: darkorange;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <h2 id="title">Problem-8: Given an array of strings, Sort them in alphabetical order.</h2>
+    <hr>
+    <h4>The Array strings:</h4>
+    <p id="array"></p>
+    <h4>The new sorted Array alphabetical order:</h4>
+    <p id="newArray"></p>
+</section>
+</body>
+
+<!-- JavaScript Code -->
+<script>
+    // This is the array that we use to sort the array alphabetical order
+    const strings = ['avijit', 'hello', 'world', 'foo', 'bar']; // The array store in "strings" variable
+
+    // Create new array with the sorted alphabetical order from the "strings" array using sort()
+    const sortedArray = strings.sort(); // sort() method by default short ascending order
+
+    // Print the array in HTML tag using DOM - innerHTML
+    document.getElementById('array').innerHTML = `['avijit', 'hello', 'world', 'foo', 'bar']`;
+    // Print the firstLetters in HTML tag using DOM - innerHTML
+    document.getElementById('newArray').innerHTML = `[ ${sortedArray.join(', ')} ]`; // use toString() to covert the array as a string
+</script>
+</html>

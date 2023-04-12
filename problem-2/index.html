@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-2 | Find the largest number</title>
+    <style>
+        #title {
+            text-align: center;
+            color: darkorange;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <h2 id="title">Problem-2: Given an array of numbers, find the largest number.</h2>
+    <hr>
+    <h4>The Array numbers:</h4>
+    <p id="array"></p>
+    <h4>The largest number of the array:</h4>
+    <p id="large"></p>
+</section>
+</body>
+
+<!-- JavaScript Code -->
+<script>
+    // This is the array that we use to find the largest number
+    const numbers = [1, 2, 3, 4, 5]; // The array store in "numbers" variable
+    // Find the largest number using "Math.min()" method
+    const largestNumber = Math.max(...numbers); // use (...) spread operator to iterate the every single element from the "numbers" array.
+
+    // Print the array in HTML tag using DOM - innerHTML
+    document.getElementById('array').innerHTML = `[ ${numbers.toString()} ]`; // use toString() to convert the array as a string
+    // Print the largestNumber in HTML tag using DOM - innerHTML
+    document.getElementById('large').innerHTML = largestNumber.toString(); // use toString() to covert the number as a string
+</script>
+</html>

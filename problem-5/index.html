@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-5 | Create a new array with only the even numbers</title>
+    <style>
+        #title {
+            text-align: center;
+            color: darkorange;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <h2 id="title">Problem-5: Given an array of numbers, Create a new array with only the even numbers.</h2>
+    <hr>
+    <h4>The Array numbers:</h4>
+    <p id="array"></p>
+    <h4>The new Array with only the even numbers:</h4>
+    <p id="newArray"></p>
+</section>
+</body>
+
+<!-- JavaScript Code -->
+<script>
+    // This is the array that we use to create a new array with only the even numbers
+    const numbers = [1, 2, 3, 4, 5]; // The array store in "numbers" variable
+
+    // Create new array with the even numbers from the "numbers" array using filter() method
+    const evenNumbers = numbers.filter(number =>  number % 2 === 0); // filter() find the every element from the array and "number % 2 === 0" use to check the even numbers
+
+    // Print the array in HTML tag using DOM - innerHTML
+    document.getElementById('array').innerHTML = `[ ${numbers.toString()} ]`; // use toString() to convert the array as a string
+    // Print the evenNumbers in HTML tag using DOM - innerHTML
+    document.getElementById('newArray').innerHTML = `[ ${evenNumbers.toString()} ]`; // use toString() to covert the array as a string
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-4 | Create a new array with the first letter of each string</title>
+    <style>
+        #title {
+            text-align: center;
+            color: darkorange;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <h2 id="title">Problem-4: Given an array of strings, Create a new array with the first letter of each string.</h2>
+    <hr>
+    <h4>The Array strings:</h4>
+    <p id="array"></p>
+    <h4>The new Array of each string's first letter:</h4>
+    <p id="newArray"></p>
+</section>
+</body>
+
+<!-- JavaScript Code -->
+<script>
+    // This is the array that we use to create a new array with the first letter of each string
+    const strings = ['hello', 'world', 'foo', 'bar']; // The array store in "strings" variable
+
+    // Create new array with the first letter of each string from the "strings" array using map() and charAt()
+    const firstLetters = strings.map(str => str.charAt(0)); // map() find the every element from the array and use charAt() to select the first letter of each string
+
+    // Print the array in HTML tag using DOM - innerHTML
+    document.getElementById('array').innerHTML = `[ ${strings.toString()} ]`; // use toString() to convert the array as a string
+    // Print the firstLetters in HTML tag using DOM - innerHTML
+    document.getElementById('newArray').innerHTML = `[ ${firstLetters.toString()} ]`; // use toString() to covert the array as a string
+</script>
+</html>
