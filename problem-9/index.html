@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-9 | Remove all duplicates</title>
+    <style>
+        #title {
+            text-align: center;
+            color: darkorange;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <h2 id="title">Problem-9: Given an array of numbers, Remove all duplicates.</h2>
+    <hr>
+    <h4>The Array of numbers:</h4>
+    <p id="array"></p>
+    <h4>The Array after remove duplicate:</h4>
+    <p id="newArray"></p>
+</section>
+</body>
+
+<!-- JavaScript Code -->
+<script>
+    // This is the array that we use to remove all duplicate element in the array
+    const numbers = [1, 2, 3, 4, 2, 3]; // The array store in "numbers" variable
+
+    /**
+     * Create new array with the sorted unique number from the "numbers" array using Set()
+     * Set() object is a collection of unique value
+     * (...) spread operator use to convert the Set() object into an array
+     * new is used to create an object from a constructor function
+     */
+    const uniqueNumbers = [...new Set(numbers)];
+
+    // Print the array in HTML tag using DOM - innerHTML
+    document.getElementById('array').innerHTML = `[ ${numbers.join(', ')} ]`; // use toString() to covert the array as a string
+    // Print the uniqueNumbers in HTML tag using DOM - innerHTML
+    document.getElementById('newArray').innerHTML = `[ ${uniqueNumbers.join(', ')} ]`; // use toString() to covert the array as a string
+</script>
+</html>

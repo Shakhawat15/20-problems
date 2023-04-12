@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-10 | Find two numbers that add up to a target value</title>
+    <style>
+        #title {
+            text-align: center;
+            color: darkorange;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <h2 id="title">Problem-10: Given an array of numbers, Find two numbers that add up to a target value.</h2>
+    <hr>
+    <h4>The Array strings:</h4>
+    <p id="array"></p>
+    <h4>The Targeted value:</h4>
+    <p id="target"></p>
+    <h4>The two numbers that add up to a target value:</h4>
+    <p id="twoNumbers"></p>
+</section>
+</body>
+
+<!-- JavaScript Code -->
+<script>
+    // This is the array that we use to find two numbers that add up to a target value
+    const numbers = [2, 7, 11, 15]; // The array store in "numbers" variable
+    // The targeted value
+    const target = 9;
+
+    /**
+     * Define the function to find two numbers that add up to a target value
+     * @param {Array} numbers
+     * @param {Number} target
+     * @returns {[numbers[i], numbers[j]] | []}
+     */
+    const findTowNumbers = (numbers, target) => {
+        const length = numbers.length; // Get the array length
+        // Using for loop to iterate the every element of the array for first number
+        for (let i = 0; i < length; i++) {
+            // Using for loop to iterate the every element of the array for second number
+            // Use i + 1 to avoid the number that have already been checked
+            for (let j = i + 1; j < length; j++) {
+                // Check the every two number of the array that equal the target value
+                if (numbers[i] + numbers[j] === target) {
+                    return [numbers[i], numbers[j]]; // IF find the numbers then return the numbers
+                }
+            }
+        }
+        return []; // IF no numbers found then return empty array
+    }
+
+    // Invoke the "findTowNumbers()" function and store the result in result variable
+    const result = findTowNumbers(numbers, target);
+
+    // Print the array in HTML tag using DOM - innerHTML
+    document.getElementById('array').innerHTML = `[ ${numbers.join(', ')} ]`; // use join() to covert the array as a string
+    // Print the targeted value in HTML tag using DOM - innerHTML
+    document.getElementById('target').innerHTML = target.toString(); // use toString() to covert the array as a string
+    // Print the twoNumbers in HTML tag using DOM - innerHTML
+    document.getElementById('twoNumbers').innerHTML = `[ ${result.join(', ')} ]`; // use join() to covert the array as a string
+</script>
+</html>
