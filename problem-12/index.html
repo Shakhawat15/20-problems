@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-12 | Find all unique hashtags used is a user's posts</title>
+    <style>
+        #title {
+            text-align: center;
+            color: darkorange;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <h2 id="title">Problem-12: A social media app needs to find all unique hashtags used is a user's posts.</h2>
+    <hr>
+    <h4>The Array of strings:</h4>
+    <p id="array"></p>
+    <h4>The unique hashtags:</h4>
+    <p id="hashtags"></p>
+</section>
+</body>
+
+<!-- JavaScript Code -->
+<script>
+    // This is the array of strings that we use to find all unique hashtags used is a user's posts
+    const posts = [
+        'Just went for a #run #fitness',
+        'Enjoying the #weekend #friends',
+        "Can't wait for the #vacation #beach"
+    ]; // The array store in "posts" variable
+
+    // Create new Set() object to store unique hashtags.
+    const hashtags = new Set();
+
+    // Use for...of loop to iterate every post in the posts array
+    for (let post of posts) {
+        // This is the regular expression
+        const regex = /#\w+/g; // "/#\w+/g" this is check any strings starting with a hash symbol
+        // Store the matches string in the "matches" variable
+        const matches = post.match(regex); // match() method returns an array of matches string
+        // Check the matches strings
+        if (matches) {
+            // use for...of loop to iterate all the matches strings
+            for (let match of matches) {
+                // Add the matches string in the variable "hashtags"
+                hashtags.add(match.slice(1)); // slice(1) use to add string without "#"
+            }
+        }
+    }
+
+    // Create a new variable "tagList" to store the HTML code for displaying the hashtags
+    let tagList = '<ul>';
+    // use foreEach loop on hashtags to iterate all tag strings
+    hashtags.forEach(tag => {
+        tagList += `<li>${tag}</li>`;
+    });
+    tagList += '</ul>';
+
+    // Print the array of strings in HTML tag using DOM - innerHTML
+    document.getElementById('array').innerHTML = `[
+        'Just went for a #run #fitness',
+        'Enjoying the #weekend #friends',
+        "Can't wait for the #vacation #beach"
+    ]`
+
+    // Print the tagList in HTML tag using DOM - innerHTML
+    document.getElementById('hashtags').innerHTML = tagList;
+
+</script>
+</html>

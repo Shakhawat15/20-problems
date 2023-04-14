@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-11 | Sort the menu items by price</title>
+    <style>
+        #title {
+            text-align: center;
+            color: darkorange;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <h2 id="title">Problem-11: A food ordering app needs to sort the menu items by price.</h2>
+    <hr>
+    <h4>The Array of object:</h4>
+    <p id="array"></p>
+    <h4>The sorted menu:</h4>
+    <p id="newArray"></p>
+</section>
+</body>
+
+<!-- JavaScript Code -->
+<script>
+    // This is the array of object that we use to sort the menu items by price
+    const menuItems = [
+        {
+            name: 'Burger',
+            price: 5.99
+        },
+        {
+            name: 'Fries',
+            price: 2.99
+        },
+        {
+            name: 'Soda',
+            price: 1.99
+        },
+        {
+            name: 'Pizza',
+            price: 10.99
+        }
+    ]; // The array store in "menuItems" variable
+
+    /**
+     * Sort the menuItems using "sort()" method and store the "sortMenu" variable
+     * The sort() method by default sort alphabetically
+     * That's why we use a callback function to check the number greater than or less than one number to another
+     * the callback function should return a negative, zero or positive value
+     * if the result negative, 'a' is sorted before 'b'.
+     * if the result is positive, 'b' is sorted before 'a'.
+     * if the result is 0, no change
+     */
+    const sortMenu = menuItems.sort((a, b) => a.price - b.price);
+
+    // This is optional. Use this to print the sorted menu in HTML
+    let menuHTML = ''; // use empty string variable "menuHTML". use let keyword because the variable value change
+    // use for...of loop to iterate every element of the menuItems
+    for (let item of sortMenu) {
+        menuHTML += `<div>${item.name} - $${item.price}</div>`; // store every element in menuHTML using div tag
+    }
+
+    // Print the array of object in HTML tag using DOM - innerHTML
+    document.getElementById('array').innerHTML = `[
+        {
+            name: 'Burger',
+            price: 5.99
+        },
+        {
+            name: 'Fries',
+            price: 2.99
+        },
+        {
+            name: 'Soda',
+            price: 1.99
+        },
+        {
+            name: 'Pizza',
+            price: 10.99
+        }
+    ]`;
+
+    // Print the menuHTML in HTML tag using DOM - innerHTML
+    document.getElementById('newArray').innerHTML = menuHTML;
+</script>
+</html>

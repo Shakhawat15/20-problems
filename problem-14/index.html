@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-14 | Track of the number of views, likes, and comments on each video</title>
+    <style>
+        #title {
+            text-align: center;
+            color: darkorange;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <h2 id="title">Problem-14: A video sharing site needs to keep track of the number of views, likes, and comments on
+        each video.</h2>
+    <hr>
+    <h4>The Array of object:</h4>
+    <p id="array"></p>
+    <h4>The number views video:</h4>
+    <p id="views"></p>
+    <h4>The number comments video:</h4>
+    <p id="comments"></p>
+</section>
+</body>
+
+<!-- JavaScript Code -->
+<script>
+    // This is the array of object that we use to keep track of the number of views, likes, and comments on each video
+    const videos = [
+        {
+            id: 'abc123',
+            title: 'How to Code a React App',
+            views: 1000,
+            likes: 50,
+            comments: [
+                {
+                    id: 'c1',
+                    text: 'Great tutorial!'
+                },
+                {
+                    id: 'c2',
+                    text: 'Thanks for sharing!'
+                }
+            ]
+        },
+        {
+            id: 'def456',
+            title: 'Building a REST API with Node.js',
+            views: 500,
+            likes: 25,
+            comments: [
+                {
+                    id: 'c3',
+                    text: 'Very helpful, thanks!'
+                },
+                {
+                    id: 'c4',
+                    text: 'Can not wait to try this out!'
+                }
+            ]
+        }
+    ]; // The array store in "videos" variable
+
+    /**
+     * Define the Arrow function to increment the views of the videos
+     * @param {String} videoId
+     * @returns {`View count for the video = ${string}: ${number}`}
+     */
+    const incrementViewsCount = (videoId) => {
+        // Find the videoID in the videos array
+        const video = videos.find((v) => v.id === videoId);
+        video.views += 1; // IF exist then increment the views 1
+        return `View count for the video = ${videoId}: ${video.views}`; // Return the result
+    }
+
+    /**
+     * Define the Arrow function to add a comment in specific video id
+     * @param {String} videoId
+     * @param {Object} comment
+     * @returns {`Comments for the video = ${string}: ${*}`}
+     */
+    const addComment = (videoId, comment) => {
+        // Find the videoID in the videos array
+        const video = videos.find((v) => v.id === videoId);
+        video.comments.push(comment); // IF exist then push the comment in the videos.comments array
+        return video.comments; // Return the result
+    }
+
+    // Store the comment in "comment" variable
+    const comment = addComment('def456', {
+        id: 'c5',
+        text: 'This is exactly what I needed!'
+    })
+
+    // Print the array of strings in HTML tag using DOM - innerHTML
+    document.getElementById('array').innerHTML = JSON.stringify(videos); // use JSON.stringify() to string is a JSON representation of the array
+
+    // Print the incrementViewsCount('abc123') in HTML tag using DOM - innerHTML
+    document.getElementById('views').innerHTML = incrementViewsCount('abc123');
+
+    // Print the addComment() in HTML tag using DOM - innerHTML
+    document.getElementById('comments').innerHTML = `Comments for the video = ` + JSON.stringify(comment);
+
+</script>
+</html>

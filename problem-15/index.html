@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-15 | Track of the number of reactions (like, love, haha, wow, sad, angry)</title>
+    <style>
+        #title {
+            text-align: center;
+            color: darkorange;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <h2 id="title">Problem-15: Facebook needs to keep track of the number of reactions (like, love, haha, wow, sad, angry) on each post.</h2>
+    <hr>
+    <h4>The Array of object:</h4>
+    <p id="array"></p>
+    <h4>The increment of the post reactions:</h4>
+    <p id="views"></p>
+    <h4>The Updated Array of object:</h4>
+    <p id="updatedPost"></p>
+</section>
+</body>
+
+<!-- JavaScript Code -->
+<script>
+    // This is the array of object that we use to keep track of the number of reactions (like, love, haha, wow, sad, angry) on each post
+    const posts = [
+        {
+            id: '_1',
+            title: 'Shakhawat Hossen',
+            comments: 'JavaScript 100 Basic Problems!',
+            reactions: {
+                like: 50,
+                love: 20,
+                haha: 5,
+                wow: 2,
+                sad: 1,
+                angry: 0
+            }
+        },
+        {
+            id: '_1',
+            title: 'Anonymous',
+            comments: 'Just finished my first Hack!',
+            reactions: {
+                like: 100,
+                love: 75,
+                haha: 10,
+                wow: 3,
+                sad: 0,
+                angry: 1
+            }
+        },
+    ]; // The array store in "posts" variable
+
+    /**
+     * Define the Arrow function to keep track of the number of reactions (like, love, haha, wow, sad, angry) on each post
+     * @param {String} postId
+     * @param {String} reactionType
+     * @returns {`Incremented ${string} reaction count for post ${string}`}
+     */
+    const incrementViewsCount = (postId, reactionType) => {
+        // Find the postId in the posts array
+        const post = posts.find((p) => p.id === postId);
+        post.reactions[reactionType] += 1; // IF exist then increment the reaction 1 by type
+        return `Incremented ${reactionType} reaction count for post ${postId}`; // Return the result
+    }
+
+
+    // Print the array of strings in HTML tag using DOM - innerHTML
+    document.getElementById('array').innerHTML = JSON.stringify(posts); // use JSON.stringify() to string is a JSON representation of the array
+
+    // Print the incrementViewsCount('abc123') in HTML tag using DOM - innerHTML
+    document.getElementById('views').innerHTML = incrementViewsCount('_1', 'like');
+
+    // Print the array of strings in HTML tag using DOM - innerHTML
+    document.getElementById('updatedPost').innerHTML = JSON.stringify(posts); // use JSON.stringify() to string is a JSON representation of the array
+
+</script>
+</html>

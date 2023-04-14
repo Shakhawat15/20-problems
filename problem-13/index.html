@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-13 | Format a list of temperatures in Celsius and Fahrenheit for display</title>
+    <style>
+        #title {
+            text-align: center;
+            color: darkorange;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <h2 id="title">Problem-13: A weather app needs to format a list of temperatures in Celsius and Fahrenheit for display.</h2>
+    <hr>
+    <h4>The Array of numbers:</h4>
+    <p id="array"></p>
+    <h4>The Celsius and Fahrenheit:</h4>
+    <p id="temperatures"></p>
+</section>
+</body>
+
+<!-- JavaScript Code -->
+<script>
+    // This is the array of numbers that we use to format a list of temperatures in Celsius and Fahrenheit for display
+    const temperatures = [12, 25, 8, 19, 3]; // The array store in "temperatures" variable
+
+    // Use map() method on temperatures array to iterate all element in the temperatures array
+    const formattedTemperatures = temperatures.map((temp) => {
+        const fahrenheit = temp * (9 / 5) + 32; // Use Celsius to Fahrenheit formula every array element
+        return `${temp}°C (${fahrenheit.toFixed(1)}°F)`; // Return the Celsius and the Fahrenheit and use toFixed() method to show only one number after decimal
+    })
+
+
+
+    // Print the array of strings in HTML tag using DOM - innerHTML
+    document.getElementById('array').innerHTML = `[ ${temperatures.join(', ')} ]`; // use join() to covert the array as a string
+
+    // Print the tagList in HTML tag using DOM - innerHTML
+    document.getElementById('temperatures').innerHTML = formattedTemperatures.join('<br><br>'); // use join() to covert the array as a string
+
+</script>
+</html>
