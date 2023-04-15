@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-16 | Finding the two numbers that add up to a target value</title>
+    <style>
+        #title {
+            text-align: center;
+            color: darkorange;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <h2 id="title">Problem-16: Finding the two numbers that add up to a target value.</h2>
+    <hr>
+    <h4>The Array of string:</h4>
+    <p id="array"></p>
+    <h4>The two numbers that add up to a target value:</h4>
+    <p id="twoValue"></p>
+</section>
+</body>
+
+<!-- JavaScript Code -->
+<script>
+    // This is the array of object that we use to Finding the two numbers that add up to a target value
+    const purchases = [1, 2, 3, 4, 5, 1, 3, 5, 6, 7, 2, 4, 8, 9, 9]; // The array store in "purchases" variable
+    // The target value
+    const target = 10;
+    // Create an empty array to store the pair of two value
+    const pairs = [];
+    // Get the purchases array length
+    const length = purchases.length
+
+    // Using for loop to iterate the every element of the array for first number
+    for (let i = 0; i < length; i++) {
+        /**
+         * Using for loop to iterate the every element of the array for second number
+         * Use i + 1 to avoid the number that have already been checked
+         */
+        for (let j = i + 1; j < length; j++) {
+            // Check the every two number of the array that there summation is equal the target value
+            if (purchases[i] + purchases[j] === target) {
+                pairs.push([purchases[i], purchases[j]]) // IF match then push them into the pairs array
+            }
+        }
+    }
+
+    console.log(pairs)
+
+
+    // Print the array of strings in HTML tag using DOM - innerHTML
+    document.getElementById('array').innerHTML = `[ ${purchases.join(', ')} ]`; // use join() to covert the array as a string
+
+    // Print the pairs in HTML tag using DOM - innerHTML
+    document.getElementById('twoValue').innerHTML = JSON.stringify(pairs);
+
+</script>
+</html>

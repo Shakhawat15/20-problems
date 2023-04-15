@@ -42,8 +42,10 @@
         const length = numbers.length; // Get the array length
         // Using for loop to iterate the every element of the array for first number
         for (let i = 0; i < length; i++) {
-            // Using for loop to iterate the every element of the array for second number
-            // Use i + 1 to avoid the number that have already been checked
+            /**
+             * Using for loop to iterate the every element of the array for second number
+             * Use i + 1 to avoid the number that have already been checked
+             */
             for (let j = i + 1; j < length; j++) {
                 // Check the every two number of the array that equal the target value
                 if (numbers[i] + numbers[j] === target) {

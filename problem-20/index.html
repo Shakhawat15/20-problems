@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-20 | Display a list of products with their prices converted to a different currency, based on the user's preferences</title>
+    <style>
+        #title {
+            text-align: center;
+            color: darkorange;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <h2 id="title">Problem-20: In a web application that display a list of products with their prices in different currencies. Let's say that we have an array of products, where each product has a name and a price property in USD. We want to display a list of products with their prices converted to a different currency, based on the user's preferences.</h2>
+    <hr>
+    <h4>The Array of object:</h4>
+    <p id="array"></p>
+    <h4>The products converted different currency:</h4>
+    <p id="currency"></p>
+</section>
+</body>
+
+<!-- JavaScript Code -->
+<script>
+    // This is the array of object that we use to sort the products by price from lowest to highest
+    const products = [
+        {
+            name: 'iPhone',
+            price: 999
+        },
+        {
+            name: 'MacBook',
+            price: 1499
+        },
+        {
+            name: 'AirPods',
+            price: 249
+        },
+    ]; // The array store in "products" variable
+
+    const currencyExchangeRate = .90; // USD to Euro exchange rate
+    const currencySymbol = '€' // Euro symbol
+
+    // use map() on products to get every product and change there price into  USD to Euro
+    const productsInEuros = products.map(product => {
+        const convertPrice = (product.price * currencyExchangeRate).toFixed(2); // This is the formula to convert USD to Euro
+        return `{${product.name}: ${currencySymbol}${convertPrice}}`; // Return the converted price with product name
+    })
+
+
+    // Print the array of strings in HTML tag using DOM - innerHTML
+    document.getElementById('array').innerHTML = JSON.stringify(products); // use JSON.stringify() to string is a JSON representation of the array
+
+    // Print the productsInEuros in HTML tag using DOM - innerHTML
+    document.getElementById('currency').innerHTML = JSON.stringify(productsInEuros); // use JSON.stringify() to string is a JSON representation of the array
+
+</script>
+</html>

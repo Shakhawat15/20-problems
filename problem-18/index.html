@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-18 | Sort the products by price from lowest to highest</title>
+    <style>
+        #title {
+            text-align: center;
+            color: darkorange;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <h2 id="title">Problem-17: Given an array of objects representing products, sort the products by price from lowest to highest.</h2>
+    <hr>
+    <h4>The Array of object:</h4>
+    <p id="array"></p>
+    <h4>The sorted product:</h4>
+    <p id="inventory"></p>
+</section>
+</body>
+
+<!-- JavaScript Code -->
+<script>
+    // This is the array of object that we use to sort the products by price from lowest to highest
+    const products = [
+        {
+            name: 'iPhone 13',
+            price: 999
+        },
+        {
+            name: 'Pixel 6',
+            price: 749
+        },
+        {
+            name: 'Galaxy S21',
+            price: 699
+        },
+        {
+            name: 'OnePlus 9 Pro',
+            price: 969
+        }
+    ]; // The array store in "products" variable
+
+    /**
+     * Sort the products using "sort()" method and store the "sortProducts" variable
+     * The sort() method by default sort alphabetically
+     * That's why we use a callback function to check the number greater than or less than one number to another
+     * the callback function should return a negative, zero or positive value
+     * if the result negative, 'a' is sorted before 'b'.
+     * if the result is positive, 'b' is sorted before 'a'.
+     * if the result is 0, no change
+     */
+    const sortProducts = products.sort((a, b) => a.price - b.price);
+
+    // This is optional. Use this to print the sorted menu in HTML
+    let productList = ''; // use empty string variable "productList". use let keyword because the variable value change
+    // use for...of loop to iterate every element of the sortProducts
+    for (let item of sortProducts) {
+        productList += `<div>${item.name} - $${item.price}</div>`; // store every element in productList using div tag
+    }
+
+
+
+
+    // Print the array of strings in HTML tag using DOM - innerHTML
+    document.getElementById('array').innerHTML = JSON.stringify(products); // use JSON.stringify() to string is a JSON representation of the array
+
+    // Print the productList in HTML tag using DOM - innerHTML
+    document.getElementById('inventory').innerHTML = productList;
+
+</script>
+</html>
