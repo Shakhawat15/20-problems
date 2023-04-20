@@ -60,11 +60,7 @@
     tagList += '</ul>';
 
     // Print the array of strings in HTML tag using DOM - innerHTML
-    document.getElementById('array').innerHTML = `[
-        'Just went for a #run #fitness',
-        'Enjoying the #weekend #friends',
-        "Can't wait for the #vacation #beach"
-    ]`
+    document.getElementById('array').innerHTML = `[ ${posts.join(', ')} ]`; // use join() to covert the array as a string
 
     // Print the tagList in HTML tag using DOM - innerHTML
     document.getElementById('hashtags').innerHTML = tagList;

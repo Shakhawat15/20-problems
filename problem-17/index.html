@@ -25,7 +25,7 @@
 
 <!-- JavaScript Code -->
 <script>
-    // This is the array of object that we use toUpdate the inventory levels for each ingredient as they use them in dishes
+    // This is the array of object that we use to update the inventory levels for each ingredient as they use them in dishes
     const ingredients = [
         {
             name: 'dough',
@@ -49,13 +49,22 @@
         }
     ]; // The array store in "ingredients" variable
 
+    /**
+     * Define the Arrow function to update the inventory levels for each ingredient as they use them in dishes
+     * @param name
+     * @param quantity
+     * @returns {`Inventory updated for ${string}: ${number} remaining`}
+     * @returns Ingredient ${string} not found
+     */
     const updateInventory = (name, quantity) => {
+        // Find the name in the ingredients array
         const ingredient = ingredients.find((i) => i.name === name);
+        // If the name in the array
         if (ingredient) {
-            ingredient.inventory -= quantity;
-            return `Inventory updated for ${name}: ${ingredient.inventory} remaining`;
+            ingredient.inventory -= quantity; // Decrement the inventory that we give the function as quantity
+            return `Inventory updated for ${name}: ${ingredient.inventory} remaining`; // Return the updated inventory with ingredients name
         } else {
-            return `Ingredient ${name} not found`;
+            return `Ingredient ${name} not found`; // If the name not found then return not found
         }
     }
 
@@ -65,7 +74,7 @@
     // Print the array of strings in HTML tag using DOM - innerHTML
     document.getElementById('array').innerHTML = JSON.stringify(ingredients); // use JSON.stringify() to string is a JSON representation of the array
 
-    // Print the pairs in HTML tag using DOM - innerHTML
+    // Print the updateInventory in HTML tag using DOM - innerHTML
     document.getElementById('inventory').innerHTML = updateInventory('dough', 2);
 
 </script>

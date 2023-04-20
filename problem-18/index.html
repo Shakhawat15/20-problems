@@ -67,7 +67,24 @@
 
 
     // Print the array of strings in HTML tag using DOM - innerHTML
-    document.getElementById('array').innerHTML = JSON.stringify(products); // use JSON.stringify() to string is a JSON representation of the array
+    document.getElementById('array').innerHTML = `[
+        {
+            name: 'iPhone 13',
+            price: 999
+        },
+        {
+            name: 'Pixel 6',
+            price: 749
+        },
+        {
+            name: 'Galaxy S21',
+            price: 699
+        },
+        {
+            name: 'OnePlus 9 Pro',
+            price: 969
+        }
+    ]`;
 
     // Print the productList in HTML tag using DOM - innerHTML
     document.getElementById('inventory').innerHTML = productList;

@@ -25,7 +25,7 @@
 
 <!-- JavaScript Code -->
 <script>
-    // This is the array of object that we use to sort the products by price from lowest to highest
+    // This is the array of object that we use to display a list of products with their prices converted to a different currency, based on the user's preferences
     const products = [
         {
             name: 'iPhone',
@@ -52,7 +52,20 @@
 
 
     // Print the array of strings in HTML tag using DOM - innerHTML
-    document.getElementById('array').innerHTML = JSON.stringify(products); // use JSON.stringify() to string is a JSON representation of the array
+    document.getElementById('array').innerHTML = `[
+        {
+            name: 'iPhone',
+            price: 999
+        },
+        {
+            name: 'MacBook',
+            price: 1499
+        },
+        {
+            name: 'AirPods',
+            price: 249
+        },
+    ]`;
 
     // Print the productsInEuros in HTML tag using DOM - innerHTML
     document.getElementById('currency').innerHTML = JSON.stringify(productsInEuros); // use JSON.stringify() to string is a JSON representation of the array
